@@ -12,7 +12,15 @@
             <h1>Avengers Character Search</h1>
         </header>
         <main>
-            <button id="search-btn" type="button">Search</button><!-- Create a search button -->
+            <form id="search-form">
+                <label for="search-input">Search by Full Name or Alias</label>
+                <div class="search-row">
+                    <input type="text" id="search-input" placeholder="e.g. Captain America or Steve Rogers">
+                    <button id="search-btn" type="submit">Search</button>
+                </div>
+            </form>
+                <h2>RESULT</h2>
+                <div id="result"><!-- Container for displaying search results --></div>
         </main>
-    </body>
+    </body> 
 </html>

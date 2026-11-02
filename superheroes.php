@@ -1,4 +1,4 @@
-g<?php
+<?php
 
 $superheroes = [
   [
@@ -63,10 +63,33 @@ $superheroes = [
   ], 
 ];
 
-?>
 
-<ul>
-<?php foreach ($superheroes as $superhero): ?>
-  <li><?= $superhero['alias']; ?></li>
-<?php endforeach; ?>
-</ul>
+$query = trim(strip_tags($_GET['query'] ?? '')); // Get the search query from the URL parameter and sanitize it
+
+if ($query === '') {
+    echo "<ul>";
+    foreach ($superheroes as $superhero) {
+        echo "<li>" . htmlspecialchars($superhero['alias'], ENT_QUOTES, 'UTF-8') . "</li>";
+}
+    echo "</ul>";
+} else{
+    $found = false;
+    foreach ($superheroes as $superhero){
+        if (
+            strcasecmp($superhero['name'], $query) === 0 ||
+            strcasecmp($superhero['alias'], $query) === 0
+        ) {
+            // Display the superhero information
+            echo "<h3>" . htmlspecialchars($superhero['alias'], ENT_QUOTES, 'UTF-8') . "</h3>";
+            echo "<h4>A.K.A " . htmlspecialchars($superhero['name'], ENT_QUOTES, 'UTF-8') . "</h4>";
+            echo "<p>" . htmlspecialchars($superhero['biography'], ENT_QUOTES, 'UTF-8') . "</p>";
+
+            $found = true;
+            break; // Exit the loop after finding the first match
+        }
+    }
+    if (!$found) {
+        echo '<p class="error">Superhero not found</p>';
+    }
+}
+?>

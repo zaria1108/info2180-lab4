@@ -1,20 +1,53 @@
-body{
+body {
     font-family: Arial, sans-serif;
     margin: 0;
-    background-color: white;
+    background-color: #f0f0f0;
 }
+
 header {
     background: #4a86b8;
     color: white;
     text-align: center;
     padding: 1rem;
 }
-main{
+
+main {
     max-width: 800px;
     margin: 1.5rem auto;
     padding: 0 1rem;
 }
-#search-btn{
+#search-form label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-bottom: 0.4rem;
+}
+.search-row {
+    display: flex;
+    gap: 0.5rem;
+}
+#search-input {
+    flex: 1;
+    padding: 0.6rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+#search-form label {
+    width: 100%;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+#search-input {
+    flex: 1;
+    padding: 0.6rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+#search-btn {
     background-color: red;
     color: white;
     border: none;
@@ -22,4 +55,15 @@ main{
     font-weight: bold;
     cursor: pointer;
     border-radius: 3px;
+}
+
+#result h3,#result h4 {
+    text-transform: uppercase;
+    margin: 0.3rem 0;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+    text-transform: uppercase;
 }
